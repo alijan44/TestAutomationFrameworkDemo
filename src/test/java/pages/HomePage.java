@@ -1,4 +1,14 @@
 package pages;
 
-public class HomePage {
+import base.UIActions;
+
+public class HomePage extends UIActions {
+
+
+
+
+
+
+
+
 }
