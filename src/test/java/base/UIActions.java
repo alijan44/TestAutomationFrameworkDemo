@@ -170,7 +170,7 @@ public abstract class UIActions {
             WebElement element = standByUntil.elementIsClickable(locator);
             element.click();
         } catch (Exception ex) {
-            System.out.println("Element was not clickalbe. Check its locators logic ( Ex: css, xpath .etc");
+            System.out.println("Element was not clickable. Check its locators logic ( Ex: css, xpath .etc");
         }
     }
 
@@ -538,7 +538,7 @@ public abstract class UIActions {
      * Call this method to see if there is an element is displayed.
      * @return Return whether an element is visible or not.
      */
-    protected boolean isElementDisplayed() {
+    protected boolean isElementDisplayed(By locator) {
         return false;
     }
     //endregion
