@@ -449,7 +449,7 @@ public abstract class UIActions {
     //region Selectors
 
     /**
-     * Call this method to select a region by CSS.
+     * Call this method to select by CSS.
      * @param expression Specified CSS.
      * @return Return desired selector.
      */
@@ -458,7 +458,7 @@ public abstract class UIActions {
     }
 
     /**
-     * Call this method to select a region by ID.
+     * Call this method to select by ID.
      * @param expression Specified ID.
      * @return Return desired selector.
      */
@@ -467,7 +467,7 @@ public abstract class UIActions {
     }
 
     /**
-     * Call this method to select a region by Xpath.
+     * Call this method to select by Xpath.
      * @param expression Specified Xpath.
      * @return Return desired selector.
      */
@@ -476,7 +476,7 @@ public abstract class UIActions {
     }
 
     /**
-     * Call this method to select a region by link text.
+     * Call this method to select by link text.
      * @param expression Specified link.
      * @return Return desired selector.
      */
@@ -485,8 +485,8 @@ public abstract class UIActions {
     }
 
     /**
-     * Call this method to select a region based on link text containing
-     * a certain expression.
+     * Call this method to select based on link text containing
+     * a specific expression.
      * @param expression Specified expression within link text.
      * @return Return desired selector.
      */
@@ -495,7 +495,7 @@ public abstract class UIActions {
     }
 
     /**
-     * Call this method to select a region based on named attributes.
+     * Call this method to select based on named attributes.
      * @param expression Specified attributes.
      * @return Return desired selector.
      */
@@ -504,7 +504,7 @@ public abstract class UIActions {
     }
 
     /**
-     * Call this method to select a region based on tags.
+     * Call this method to select based on tags.
      * @param expression Specified tag.
      * @return Return desired selector.
      */
@@ -539,7 +539,7 @@ public abstract class UIActions {
      * @return Return whether an element is visible or not.
      */
     protected boolean isElementDisplayed(By locator) {
-        return false;
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
     }
     //endregion
 
