@@ -1,11 +1,11 @@
 package pages;
 
-import base.UIActions;
+import base.PageActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utility.DriverUtil;
 
-public class HomePage extends UIActions {
+public class HomePage extends PageActions {
     private WebDriver driver = DriverUtil.getDriver();
     private String url = "https://www.saucedemo.com/inventory.html";
 

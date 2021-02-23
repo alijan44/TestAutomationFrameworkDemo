@@ -1,29 +1,31 @@
 package base;
 
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.DriverUtil;
-import utility.StandByUntil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class UIActions {
+/**
+ * This class contains useful methods where low-level browser automation
+ * codes has been abstracted into simple methods.  This enables tester
+ * to rapidly develop automation scripts and also allows junior tester
+ * to develop test script without learning selenium.
+ */
+public abstract class PageActions {
 
-    private static final Integer WAIT_TIME = 30;
+    private static final Integer WAIT_TIME = 40;
     protected static WebDriver driver;
     private static WebDriverWait wait;
     private static ArrayList<String> tabs;
 
-    private static StandByUntil standByUntil;
 
-    public UIActions() {
+    public PageActions() {
         driver = DriverUtil.getDriver();
         wait = new WebDriverWait(driver, WAIT_TIME);
-        standByUntil = new StandByUntil(wait);
     }
 
     /**
@@ -167,7 +169,7 @@ public abstract class UIActions {
     protected void click(By locator) {
         try {
             highlight(locator);
-            WebElement element = standByUntil.elementIsClickable(locator);
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
             element.click();
         } catch (Exception ex) {
             System.out.println("Element was not clickable. Check its locators logic ( Ex: css, xpath .etc");
@@ -200,7 +202,7 @@ public abstract class UIActions {
     protected void doubleClick(By locator) {
         highlight(locator);
         new Actions(driver)
-                .doubleClick(standByUntil.elementIsClickable(locator))
+                .doubleClick(wait.until(ExpectedConditions.elementToBeClickable(locator)))
                 .build()
                 .perform();
     }
@@ -211,7 +213,7 @@ public abstract class UIActions {
      */
     protected void rightClick(By locator) {
         new Actions(driver)
-                .contextClick(standByUntil.elementIsClickable(locator))
+                .contextClick(wait.until(ExpectedConditions.elementToBeClickable(locator)))
                 .build()
                 .perform();
     }
@@ -379,7 +381,7 @@ public abstract class UIActions {
      */
     protected void write(By locator, String text) {
         highlight(locator);
-        standByUntil.elementIsThereAndVisibleToUser(locator).sendKeys(text);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
     }
 
     /**
@@ -431,7 +433,7 @@ public abstract class UIActions {
      * @return The desired element.
      */
     protected WebElement element(By locator) {
-        return standByUntil.elementIsThereAndVisibleToUser(locator);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     /**

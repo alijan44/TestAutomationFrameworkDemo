@@ -1,9 +1,9 @@
 package pages;
 
-import base.UIActions;
+import base.PageActions;
 import org.openqa.selenium.By;
 
-public class CheckoutPage extends UIActions {
+public class CheckoutPage extends PageActions {
     // --- List of Element Locations ---
     private By first_name = By.xpath("/html//input[@id='first-name']");
     private By last_name = By.xpath("/html//input[@id='last-name']");

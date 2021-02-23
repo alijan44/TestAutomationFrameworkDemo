@@ -2,11 +2,14 @@ package tests;
 
 import base.UITestBase;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.CheckoutPage;
 import pages.HomePage;
 
+
+@Listeners(utility.TestListener.class)
 public class UISmokeTest extends UITestBase {
 
     @Test
@@ -17,6 +20,7 @@ public class UISmokeTest extends UITestBase {
         String zipCode = faker().address().zipCode();
 
         // -- TEST STEPS
+        LOG("Adding items to the shopping cart");
         HomePage home = new HomePage();
         home.openHomePage();
         home.atcBackpack();
@@ -24,6 +28,7 @@ public class UISmokeTest extends UITestBase {
         home.atcBoltTShirt();
         home.clickShoppingCart();
 
+        LOG("Checking out the item in the cart");
         CartPage cart = new CartPage();
         cart.clickCheckout();
 
@@ -34,8 +39,10 @@ public class UISmokeTest extends UITestBase {
         checkout.clickContinue();
         checkout.clickFinish();
 
+        LOG("Asserting that user saw the confirmation message");
         boolean result1 = checkout.thankYouIsDisplayed();
         Assert.assertTrue(result1);
+        IMG("Test Caputre");
     }
 
     @Test

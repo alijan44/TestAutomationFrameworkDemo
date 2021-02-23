@@ -12,8 +12,8 @@ import org.testng.ITestResult;
 
 public class TestListener implements ITestListener {
     private ExtentReports extent;
-    private ExtentTest testcase;
     private ExtentSparkReporter spark;
+    private static ExtentTest testcase;
 
 
     // ====== TEST ====== //
@@ -32,11 +32,17 @@ public class TestListener implements ITestListener {
     }
 
 
-
     // ===== TEST CASE  ====== //
 
+    /*
+
+     */
     public void onTestStart(ITestResult result) {
         testcase = extent.createTest(result.getName());
+    }
+
+    public static ExtentTest getTestCaseSection() {
+        return testcase;
     }
 
     public void onTestSuccess(ITestResult result) {
@@ -65,13 +71,4 @@ public class TestListener implements ITestListener {
         String screenshot = ((TakesScreenshot) DriverUtil.getDriver()).getScreenshotAs(OutputType.BASE64);
         testcase.addScreenCaptureFromBase64String(screenshot, message);
     }
-
-
-
-
-
-
-
-
-
 }

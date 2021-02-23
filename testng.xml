@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suites">
+
+    <listeners>
+        <listener class-name="utility.TestListener"/>
+    </listeners>
+
+    <test name="UISmoke">
+        <classes>
+            <class name="tests.UISmokeTest"/>
+        </classes>
+    </test>
+
+    <test name="APISmoke">
+        <classes>
+            <class name="tests.APISmoke"/>
+        </classes>
+    </test>
+
+</suite>
