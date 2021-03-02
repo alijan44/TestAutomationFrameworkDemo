@@ -26,7 +26,7 @@ public abstract class APITestBase {
     /**
      * Extracts the registration token and sets to token global variable
      *
-     * @param newToken Stirng: registration token recieved from the server
+     * @param newToken String: registration token received from the server
      */
     public void setToken(String newToken) {
         if (newToken == null) {
@@ -49,7 +49,7 @@ public abstract class APITestBase {
     /**
      * Extracts the session token and sets to the sessionToken global variable
      *
-     * @param input String: session token recieved from the server
+     * @param input String: session token received from the server
      */
     public void setSessionToken(String input) {
         if (input == null) {
@@ -79,7 +79,7 @@ public abstract class APITestBase {
     }
 
     /**
-     * Gets the auto-generated eamil address of the user
+     * Gets the auto-generated email address of the user
      *
      * @return String email address generated
      */
@@ -129,7 +129,7 @@ public abstract class APITestBase {
      * Giving the file that contains JSON file, it converts the JSON format
      * to the String data, and returns to the caller.
      *
-     * @param filename file name without extention
+     * @param filename file name without extension
      * @return String: json data converted to string
      */
     public String getPayload(String filename) {
@@ -157,7 +157,7 @@ public abstract class APITestBase {
 
     /**
      * Auto generates the new user's payload that contains registration
-     * contentes
+     * contents
      *
      * @return String:  payload content for new user
      */
