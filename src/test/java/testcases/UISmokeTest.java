@@ -15,8 +15,8 @@ public class UISmokeTest extends UITestBase {
 
     @Test
     public void sampleTestCase1(){
+        //(testing to ensure confirmation message is displayed after purchase)
         // -- TEST DATA
-
         String firstName = faker().name().firstName();
         String lastName = faker().name().lastName();
         String zipCode = faker().address().zipCode();
@@ -54,6 +54,7 @@ public class UISmokeTest extends UITestBase {
 
     @Test
     public void sampleTestCase2(){
+        // --(testing to ensure that fleece jacket is displayed on final checkout page)
         // -- TEST DATA
         String firstName = faker().name().firstName();
         String lastName = faker().name().lastName();
@@ -66,6 +67,7 @@ public class UISmokeTest extends UITestBase {
         login.openLoginPage();
         login.login();
 
+        LOG("Adding/removing items from cart");
         HomePage home = new HomePage();
         home.atcBackpack();
         home.atcBoltTShirt();
@@ -73,30 +75,22 @@ public class UISmokeTest extends UITestBase {
         home.removeBackpack();
         home.clickShoppingCart();
 
+        LOG("Removing Tshirt from cart on cart page");
         CartPage cart = new CartPage();
         cart.removeTshirt();
         cart.clickCheckout();
 
+        LOG("Entering shipping information");
         CheckoutPage checkout = new CheckoutPage();
         checkout.enterFirstName(firstName);
         checkout.enterLastName(lastName);
         checkout.enterZipCode(zipCode);
         checkout.clickContinue();
 
+        LOG("Asserting that jacket is displayed on final checkout page");
         boolean result1 = checkout.jacketDisplayed();
         Assert.assertTrue(result1);
+        IMG("Jacket is Displayed");
     }
 
-    @Test
-    public void sampleTestCase3(){
-        // --- TEST DATA
-
-        // --- TEST STEPS
-        LoginPage login = new LoginPage();
-        login.openLoginPage();
-        login.login();
-
-
-
-    }
 }
