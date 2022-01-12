@@ -10,12 +10,12 @@ public class HomePage extends PageActions {
     private String url = "https://www.saucedemo.com/inventory.html";
 
     // --- List of Element Locations ---
-    private By backpack_atc = By.xpath("/html//div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[1]/div[@class='pricebar']/button[.='ADD TO CART']");
-    private By bike_light_atc = By.xpath("/html//div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[2]/div[@class='pricebar']/button[.='ADD TO CART']");
-    private By bolt_tshirt_atc = By.xpath("/html//div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[3]/div[@class='pricebar']/button[.='ADD TO CART']");
-    private By shopping_cart_button = By.cssSelector("path");
-    private By jacket_atc = By.cssSelector("div:nth-of-type(4) > .pricebar > .btn_inventory.btn_primary");
-    private By remove_backpack = By.xpath("/html//div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[1]/div[@class='pricebar']/button[.='REMOVE']");
+    private By backpack_atc = By.xpath("/html//button[@id='add-to-cart-sauce-labs-backpack']");
+    private By bike_light_atc = By.xpath("/html//button[@id='add-to-cart-sauce-labs-bike-light']");
+    private By bolt_tshirt_atc = By.xpath("/html//button[@id='add-to-cart-sauce-labs-bolt-t-shirt']");
+    private By shopping_cart_button = By.cssSelector(".shopping_cart_badge");
+    private By jacket_atc = By.cssSelector("button#add-to-cart-sauce-labs-fleece-jacket");
+    private By remove_backpack = By.xpath("/html//button[@id='remove-sauce-labs-backpack']");
 
 
     // --- List of Methods (User Actions) ---

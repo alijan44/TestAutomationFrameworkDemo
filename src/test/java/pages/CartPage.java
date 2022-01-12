@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 
 public class CartPage extends PageActions {
     // --- List of Element Locations ---
-    private By checkout_button = By.xpath("//div[@id='cart_contents_container']//div[@class='cart_footer']/a[@href='./checkout-step-one.html']");
-    private By remove_tshirt = By.cssSelector(".cart_list > div:nth-of-type(3) .btn_secondary.cart_button");
+    private By checkout_button = By.xpath("/html//button[@id='checkout']");
+    private By remove_tshirt = By.cssSelector("button#remove-sauce-labs-bolt-t-shirt");
 
     // --- List of Methods (User Actions) ---
     public void clickCheckout(){

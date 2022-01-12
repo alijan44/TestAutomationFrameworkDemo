@@ -1,4 +1,4 @@
-package tests;
+package testcases;
 
 import base.APITestBase;
 import com.jayway.jsonpath.JsonPath;

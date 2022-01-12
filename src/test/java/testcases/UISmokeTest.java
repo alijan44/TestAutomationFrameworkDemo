@@ -1,4 +1,4 @@
-package tests;
+package testcases;
 
 import base.UITestBase;
 import org.testng.Assert;
@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.CheckoutPage;
 import pages.HomePage;
+import pages.LoginPage;
 
 
 @Listeners(utility.TestListener.class)
@@ -15,14 +16,19 @@ public class UISmokeTest extends UITestBase {
     @Test
     public void sampleTestCase1(){
         // -- TEST DATA
+
         String firstName = faker().name().firstName();
         String lastName = faker().name().lastName();
         String zipCode = faker().address().zipCode();
 
         // -- TEST STEPS
+        LOG("Logging into the website");
+        LoginPage login = new LoginPage();
+        login.openLoginPage();
+        login.login();
+
         LOG("Adding items to the shopping cart");
         HomePage home = new HomePage();
-        home.openHomePage();
         home.atcBackpack();
         home.atcBikeLight();
         home.atcBoltTShirt();
@@ -32,6 +38,7 @@ public class UISmokeTest extends UITestBase {
         CartPage cart = new CartPage();
         cart.clickCheckout();
 
+        LOG("Entering shipping information");
         CheckoutPage checkout = new CheckoutPage();
         checkout.enterFirstName(firstName);
         checkout.enterLastName(lastName);
@@ -42,7 +49,7 @@ public class UISmokeTest extends UITestBase {
         LOG("Asserting that user saw the confirmation message");
         boolean result1 = checkout.thankYouIsDisplayed();
         Assert.assertTrue(result1);
-        IMG("Test Caputre");
+        IMG("Test Capture");
     }
 
     @Test
@@ -53,8 +60,13 @@ public class UISmokeTest extends UITestBase {
         String zipCode = faker().address().zipCode();
 
         // -- TEST STEPS
+
+        LOG("Logging into the website");
+        LoginPage login = new LoginPage();
+        login.openLoginPage();
+        login.login();
+
         HomePage home = new HomePage();
-        home.openHomePage();
         home.atcBackpack();
         home.atcBoltTShirt();
         home.atcJacket();
@@ -75,4 +87,16 @@ public class UISmokeTest extends UITestBase {
         Assert.assertTrue(result1);
     }
 
+    @Test
+    public void sampleTestCase3(){
+        // --- TEST DATA
+
+        // --- TEST STEPS
+        LoginPage login = new LoginPage();
+        login.openLoginPage();
+        login.login();
+
+
+
+    }
 }

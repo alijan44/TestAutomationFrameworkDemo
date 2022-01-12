@@ -8,13 +8,13 @@
 
     <test name="UISmoke">
         <classes>
-            <class name="tests.UISmokeTest"/>
+            <class name="testcases.UISmokeTest"/>
         </classes>
     </test>
 
     <test name="APISmoke">
         <classes>
-            <class name="tests.APISmoke"/>
+            <class name="testcases.APISmoke"/>
         </classes>
     </test>
 
